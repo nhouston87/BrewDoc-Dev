@@ -1,0 +1,31 @@
+{
+  "name": "brewdoc-dev",
+  "version": "1.0.1",
+  "description": "Social network for brewing and beer enthusiasts",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhouston87/BrewDoc-Dev.git"
+  },
+  "author": "Nick Houston",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nhouston87/BrewDoc-Dev/issues"
+  },
+  "homepage": "https://github.com/nhouston87/BrewDoc-Dev#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.1.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
