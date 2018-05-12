@@ -4,24 +4,29 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#home">To the top</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#about">What we are</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact us</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/users/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users/register">Register</a>
-      </li>
-    </ul>
+
+      {{#if user}}
+
+      {{else}}
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">To the top</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">What we are</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact us</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/users/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/register">Register</a>
+          </li>
+        </ul>
+      {{/if}}
   </div>
 </nav>

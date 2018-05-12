@@ -14,6 +14,11 @@ module.exports = function(passport){
         return done(null, false, {message: 'No user found'});
       }
 
+      // Check if user is locked
+      if(user.locked){
+        return done(null, false, {message: 'Account is locked, please reset password'});
+      }
+
       // Match password
       bcrypt.compare(password, user.password, (err, isMatch) => {
         if(err) throw err;
@@ -25,4 +30,14 @@ module.exports = function(passport){
       })
     })
   }));
+
+  passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
+
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
+    });
+  });
 }

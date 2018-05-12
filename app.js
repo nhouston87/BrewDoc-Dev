@@ -12,8 +12,12 @@ const session = require('express-session');
 // Configure main app object
 const app = express();
 
-// Load controllers
-const users = require('./controllers/users');
+// Load routes
+const users = require('./routes/users');
+const dash = require('./routes/dash');
+
+// Passport config
+require('./config/passport')(passport);
 
 // Configure mongoose to connect to db
 mongoose.Promise = global.Promise;
@@ -43,6 +47,10 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+// Passport middlewares
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Flash middleware
 app.use(flash());
 
@@ -51,6 +59,7 @@ app.use(function(req, res, next){
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
   next();
 });
 
@@ -61,9 +70,7 @@ app.get('/', (req, res) => {
 
 // Configure imported routes
 app.use('/users', users);
-
-// Passport config
-require('./config/passport')(passport);
+app.use('/dash', dash);
 
 // Configure server listening
 const port = 3000;
