@@ -30,6 +30,13 @@ router.get('/register', (req, res) => {
   res.render('users/register');
 });
 
+// User logout route
+router.get('/logout', (req, res) => {
+    req.logout();
+    req.flash('success_msg', 'You have logged out');
+    res.redirect('/users/login');
+})
+
 /*
 
     POST REQUESTS
