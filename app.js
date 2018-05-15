@@ -15,6 +15,8 @@ const app = express();
 // Load routes
 const users = require('./routes/users');
 const dash = require('./routes/dash');
+const recipes = require('./routes/recipes');
+const batches = require('./routes/batches');
 
 // Passport config
 require('./config/passport')(passport);
@@ -71,6 +73,8 @@ app.get('/', (req, res) => {
 // Configure imported routes
 app.use('/users', users);
 app.use('/dash', dash);
+app.use('/recipes', recipes);
+app.use('/batches', batches);
 
 // Configure server listening
 const port = 3000;
