@@ -9,7 +9,7 @@
 
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/dash">Home</a>
+            <a class="nav-link" href="/dash">Dashboard</a>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="recipes_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recipes</a>
@@ -35,12 +35,14 @@
               <a href="#" class="dropdown-item">View Users</a>
               <a href="#" class="dropdown-item">Locked Users</a>
               <a href="#" class="dropdown-item">Reports</a>
+              <a href="#" class="dropdown-item">Enhancements</a>
             </div>
             </li>
           {{/if}}
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="acct_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user.name}}</a>
             <div class="dropdown-menu" aria-labelledby="acct_dropdown">
+              <a href="#" class="dropdown-item">Report Problem</a>
               <a href="#" class="dropdown-item">Settings</a>
               <a href="/users/logout" class="dropdown-item">Logout</a>
             </div>

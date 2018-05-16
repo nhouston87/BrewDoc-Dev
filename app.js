@@ -77,7 +77,7 @@ app.use('/recipes', recipes);
 app.use('/batches', batches);
 
 // Configure server listening
-const port = 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });

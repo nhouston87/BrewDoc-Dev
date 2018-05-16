@@ -4,10 +4,52 @@
       <h3>Create new recipe</h3>
     </div>
     <div class="card-body">
-      <form>
-        <div class="form-group">
-          <label for="recipe_name">Recipe Name</label>
-          <input type="text" name="recipe_name" value="" class="form-control">
+      <form method="post" action="/recipes">
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="name">Recipe Name</label>
+            <input type="text" name="name" value="{{#if name}}{{name}}{{/if}}" class="form-control">
+          </div>
+          <div class="col-sm-4">
+            <label for="type">Recipe Type</label>
+            <select name="type" class="form-control">
+              {{#if type}}
+              <option value="{{type}}">{{type}}</option>
+              {{/if}}
+              <option value="All Grain">All Grain</option>
+              <option value="Extract With Stepped Grains">Extract With Stepped Grains</option>
+              <option value="Extract">Extract</option>
+            </select>
+          </div>
+          <div class="col-sm-4">
+            <label for="size">Recipe Size</label>
+            <select name="size" class="form-control">
+              {{#if size}}
+              <option value="{{size}}">{{size}} Gallon</option>
+              {{/if}}
+              <option value="1">1 Gallon</option>
+              <option value="2.5">2.5 Gallons</option>
+              <option value="3">3 Gallons</option>
+              <option value="5">5 Gallons</option>
+              <option value="7.5">7.5 Gallons</option>
+              <option value="10">10 Gallons</option>
+              <option value="15">15 Gallons</option>
+              <option value="20">20 Gallons</option>
+              <option value="30">30 Gallons</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-sm-12">
+            <label for="notes">Recipe Notes</label>
+            <textarea name="notes" class="form-control" rows="3">{{#if notes}}{{notes}}{{/if}}</textarea>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-sm-3">
+            <input type="submit" class="btn btn-primary" value="Create Recipe">
+            <a href="/recipes" class="btn btn-danger">Cancel</a>
+          </div>
         </div>
       </form>
     </div>
